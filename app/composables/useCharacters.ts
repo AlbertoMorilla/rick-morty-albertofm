@@ -7,30 +7,31 @@ export const useCharacters = () => {
   const loading = ref(false);
   const error = ref(null);
 
-  // Función para obtener datos
   const fetchCharacters = async () => {
     loading.value = true;
     error.value = null;
     try {
-      // Construimos la URL con filtros
+      // ✅ Aquí conectamos con la API oficial
+      // Usamos los filtros de pagina y nombre como pide el requisito
       const query = new URLSearchParams({
         page: page.value.toString(),
         name: search.value
       }).toString();
 
-      const response: any = await $fetch(`${config.public.apiBase}/character?${query}`);
+      // La URL base debe ser: https://rickandmortyapi.com/api
+      const response: any = await $fetch(`https://rickandmortyapi.com/api/character?${query}`);
       
       characters.value = response.results;
       info.value = response.info;
     } catch (e: any) {
       error.value = e;
-      characters.value = []; // Limpiar si no hay resultados
+      characters.value = []; 
     } finally {
       loading.value = false;
     }
   };
 
-  // Watchers para recargar si cambia página o búsqueda
+  // Reactividad: Si cambia la página o la búsqueda, recargamos
   watch([page, search], () => {
     fetchCharacters();
   });
