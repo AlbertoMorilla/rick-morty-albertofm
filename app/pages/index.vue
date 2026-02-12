@@ -3,7 +3,7 @@
     
     <div class="text-center space-y-3 py-6">
       <h1 class="text-5xl md:text-6xl text-white tracking-wider font-creepster" style="font-family: 'Creepster', cursive;">
-        Wubba Lubba <span class="text-green-400">Dub Dub!</span>
+         <span class="text-green-400">Dub Dub!</span>
       </h1>
       <p class="text-dark-200 text-lg">Explora el multiverso de personajes.</p>
       
