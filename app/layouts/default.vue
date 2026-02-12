@@ -5,30 +5,30 @@
       <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
         
         <NuxtLink to="/" class="flex items-center space-x-3 rtl:space-x-reverse group">
-          <span class="text-4xl group-hover:text-green-400 transition-colors duration-300" style="font-family: 'Creepster', cursive;">
+          <span class="text-3xl md:text-4xl group-hover:text-green-400 transition-colors duration-300" style="font-family: 'Creepster', cursive;">
             Rick&Morty <span class="text-green-400">App</span>
           </span>
         </NuxtLink>
 
-        <div class="flex gap-4 md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
+        <div class="flex gap-2 md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
           <button 
             @click="authStore.logout()" 
-            class="text-white bg-gradient-to-r from-green-700 via-green-600 to-green-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center shadow-lg shadow-red-500/50 transition-all"
+            class="text-white bg-green-600 hover:bg-green-700 font-medium rounded-lg text-xs md:text-sm px-3 py-2 text-center shadow-lg shadow-green-500/50 transition-all"
           >
-            Cerrar Portal 🚪
+            Salir 🚪
           </button>
         </div>
 
-        <div class="items-center justify-between w-full md:flex md:w-auto md:order-1">
-          <ul class="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0">
+        <div class="items-center justify-between w-full md:flex md:w-auto md:order-1" id="navbar-cta">
+          <ul class="flex flex-row gap-4 font-medium p-4 md:p-0 mt-4 border border-gray-100/10 rounded-lg md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0">
             <li>
-              <NuxtLink to="/" class="block py-2 px-3 text-white rounded md:bg-transparent md:p-0 hover:text-green-400 transition-colors" active-class="text-green-400 font-bold">
+              <NuxtLink to="/" class="block py-2 px-3 text-white rounded hover:text-green-400 transition-colors" active-class="text-green-400 font-bold">
                 Explorar
               </NuxtLink>
             </li>
             <li>
-              <NuxtLink to="/favorites" class="block py-2 px-3 text-white rounded md:bg-transparent md:p-0 hover:text-blue-400 transition-colors" active-class="text-blue-400 font-bold">
-                Mis Favoritos
+              <NuxtLink to="/favorites" class="block py-2 px-3 text-white rounded hover:text-blue-400 transition-colors" active-class="text-blue-400 font-bold">
+                Favoritos
               </NuxtLink>
             </li>
           </ul>
@@ -36,9 +36,10 @@
       </div>
     </nav>
     
-    <main class="container mx-auto p-4 pt-24 pb-12">
+    <main class="container mx-auto p-4 pt-36 pb-12">
       <slot />
     </main>
+
   </div>
 </template>
 
@@ -47,7 +48,7 @@ const authStore = useAuthStore();
 </script>
 
 <style>
-/* Aplicamos la fuente Inter a todo el cuerpo por defecto */
+/* Fuente global */
 body {
   font-family: 'Inter', sans-serif;
 }

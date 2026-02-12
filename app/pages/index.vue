@@ -2,9 +2,12 @@
   <div class="space-y-8">
     
     <div class="text-center space-y-3 py-6">
-      <h1 class="text-5xl md:text-6xl text-white tracking-wider font-creepster" style="font-family: 'Creepster', cursive;">
-         <span class="text-green-400">Dub Dub!</span>
-      </h1>
+      <h1 class="text-3xl md:text-6xl text-white tracking-wider font-creepster" style="font-family: 'Creepster', cursive;">
+  Wubba Lubba <span class="text-green-400">Dub Dub!</span>
+</h1>
+
+<div class="relative max-w-md mx-auto mt-6 px-4 md:px-0">
+  </div>
       <p class="text-dark-200 text-lg">Explora el multiverso de personajes.</p>
       
       <div class="relative max-w-md mx-auto mt-6">
