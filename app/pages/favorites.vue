@@ -1,6 +1,8 @@
 <template>
   <div>
-    <h1 class="text-3xl font-bold text-gray-800 mb-6">Mis Favoritos ❤️</h1>
+    <h1 class="text-4xl text-center mb-10 text-white" style="font-family: 'Creepster', cursive;">
+      Tus <span class="text-red-500">Favoritos</span>
+    </h1>
     
     <div v-if="favorites.length === 0" class="text-center py-10 bg-white rounded shadow p-8">
       <p class="text-gray-500">Aún no tienes favoritos.</p>

@@ -9,6 +9,11 @@ export default defineNuxtConfig({
       title: 'Rick & Morty Dashboard',
       meta: [
         { name: 'description', content: 'Prueba Técnica Frontend' }
+      ],
+      link: [
+        { rel: 'icon', type: 'image/png', href: '/favicon.ico' },
+        { rel: 'preconnect', href: 'https://fonts.googleapis.com' },
+        { rel: 'stylesheet', href: 'https://fonts.googleapis.com/css2?family=Creepster&family=Inter:wght@300;400;600;800&display=swap' }
       ]
     }
   },
