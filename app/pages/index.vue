@@ -18,6 +18,19 @@
           placeholder="Buscar habitante..."
           class="block w-full px-6 py-4 rounded-full bg-slate-800/50 border border-slate-600 text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-green-400 focus:border-transparent backdrop-blur-sm transition-all"
         >
+        <!-- Selector de estado -->
+        <div class="mt-4">
+          <select
+            v-model="status"
+            @change="page = 1"
+            class="block w-full px-6 py-4 rounded-full bg-slate-800/50 border border-slate-600 text-white placeholder-slate-400 focus:outline-none focus:ring-2 focus:ring-green-400 focus:border-transparent backdrop-blur-sm transition-all"
+          >
+            <option value="">Todos los estados</option>
+            <option value="alive">Alive</option>
+            <option value="dead">Dead</option>
+            <option value="unknown">Unknown</option>
+          </select>
+        </div>
       </div>
     </div>
 
@@ -79,9 +92,10 @@ const {
   error, 
   page, 
   search, 
+  status,
   info, 
   fetchCharacters 
-} = useCharacters();
+} = useCharacters() as ReturnType<typeof useCharacters>;
 
 // 3. Cargamos los datos al montar el componente
 onMounted(() => {

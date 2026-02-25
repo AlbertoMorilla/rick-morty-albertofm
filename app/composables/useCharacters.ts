@@ -1,7 +1,11 @@
+import { ref, watch } from 'vue';
+
 export const useCharacters = () => {
   const config = useRuntimeConfig();
   const page = ref(1);
   const search = ref('');
+  // Nuevo filtro: status puede ser 'alive', 'dead', 'unknown' o '' para no filtrar
+  const status = ref('');
   const characters = ref([]);
   const info = ref(null);
   const loading = ref(false);
@@ -13,10 +17,11 @@ export const useCharacters = () => {
     try {
       // ✅ Aquí conectamos con la API oficial
       // Usamos los filtros de pagina y nombre como pide el requisito
-      const query = new URLSearchParams({
-        page: page.value.toString(),
-        name: search.value
-      }).toString();
+      const params = new URLSearchParams();
+      params.append('page', page.value.toString());
+      if (search.value) params.append('name', search.value);
+      if (status.value) params.append('status', status.value.toLowerCase());
+      const query = params.toString();
 
       // La URL base debe ser: https://rickandmortyapi.com/api
       const response: any = await $fetch(`https://rickandmortyapi.com/api/character?${query}`);
@@ -31,14 +36,15 @@ export const useCharacters = () => {
     }
   };
 
-  // Reactividad: Si cambia la página o la búsqueda, recargamos
-  watch([page, search], () => {
+  // Reactividad: Si cambia la página, la búsqueda o el status, recargamos
+  watch([page, search, status], () => {
     fetchCharacters();
   });
 
   return {
     page,
     search,
+    status,
     characters,
     info,
     loading,
